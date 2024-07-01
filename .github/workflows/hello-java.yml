@@ -1,0 +1,29 @@
+name: Run Java Code with Java 8
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+
+      - name: Compile Java code
+        run: javac -d out *.java
+
+      - name: Run Java code
+        run: java -cp out Main

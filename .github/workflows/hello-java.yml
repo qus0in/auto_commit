@@ -23,7 +23,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Compile Java code
-        run: javac -d out *.java
+        run: javac -d ./*.java
 
       - name: Run Java code
-        run: java -cp out Main
+        run: java -cp ./Main
